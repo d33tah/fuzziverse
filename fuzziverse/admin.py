@@ -25,4 +25,5 @@ class FuzzingAttemptInline(NestedStackedInline):
 
 class ApplicationAdmin(NestedModelAdmin):
     inlines = [ReportInline, FuzzingAttemptInline]
+    search_fields = ['name']
 user_admin_site.register(models.Application, ApplicationAdmin)
