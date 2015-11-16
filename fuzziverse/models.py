@@ -6,6 +6,9 @@ class Application(models.Model):
     name = models.CharField(max_length=1024)
     url = models.CharField(max_length=1024)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
     __repr__ = __str__
