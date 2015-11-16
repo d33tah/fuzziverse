@@ -1,7 +1,8 @@
 # #Uncomment this to test issue #1:
 #from fuzziverse.user_admin import user_admin_site
+from django.contrib.admin import AdminSite
+user_admin_site = AdminSite()
 
-from fuzziverse.user_admin import user_admin_site
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
 from fuzziverse import models
