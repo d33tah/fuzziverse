@@ -1,3 +1,6 @@
+# #Uncomment this to test issue #1:
+#from fuzziverse.user_admin import user_admin_site
+
 from fuzziverse.user_admin import user_admin_site
 
 from django.contrib import admin
