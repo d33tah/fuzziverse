@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from fuzziverse.admin import user_admin_site
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include(user_admin_site.urls)),
 ]
