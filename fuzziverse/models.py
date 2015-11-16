@@ -5,10 +5,18 @@ class Application(models.Model):
     name = models.CharField(max_length=1024)
     url = models.CharField(max_length=1024)
 
+    def __str__(self):
+        return self.name
+    __repr__ = __str__
+
 class Report(models.Model):
     title = models.CharField(max_length=1024)
     url = models.CharField(max_length=1024)
     app = models.ForeignKey(Application)
+
+    def __str__(self):
+        return self.url
+    __repr__ = __str__
 
 class FuzzingAttempt(models.Model):
     app = models.ForeignKey(Application)
