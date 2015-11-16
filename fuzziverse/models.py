@@ -5,6 +5,11 @@ class Application(models.Model):
     name = models.CharField(max_length=1024)
     url = models.CharField(max_length=1024)
 
+class Report(models.Model):
+    title = models.CharField(max_length=1024)
+    url = models.CharField(max_length=1024)
+    app = models.ForeignKey(Application)
+
 class FuzzingAttempt(models.Model):
     app = models.ForeignKey(Application)
     fuzzer_stats = models.TextField(verbose_name='fuzzer_stats contents')

@@ -11,6 +11,11 @@ class FileUploadInline(NestedStackedInline):
     min_num = 1
     extra = 0
 
+class ReportInline(NestedStackedInline):
+    model = models.Report
+    min_num = 1
+    extra = 0
+
 class FuzzingAttemptInline(NestedStackedInline):
     model = models.FuzzingAttempt
     min_num = 1
@@ -18,6 +23,5 @@ class FuzzingAttemptInline(NestedStackedInline):
     inlines = [FileUploadInline]
 
 class ApplicationAdmin(NestedModelAdmin):
-
-    inlines = [FuzzingAttemptInline]
+    inlines = [ReportInline, FuzzingAttemptInline]
 user_admin_site.register(models.Application, ApplicationAdmin)
