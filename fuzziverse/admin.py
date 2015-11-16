@@ -1,4 +1,5 @@
-from fuzziverse.user_admin import user_admin_site
+from django.contrib.admin.sites import AdminSite
+user_admin_site = AdminSite()
 
 from django.contrib import admin
 
