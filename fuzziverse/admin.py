@@ -21,6 +21,7 @@ class FuzzingAttemptInline(NestedStackedInline):
     min_num = 1
     extra = 0
     inlines = [FileUploadInline]
+    readonly_fields = ['created']
 
 class ApplicationAdmin(NestedModelAdmin):
     inlines = [ReportInline, FuzzingAttemptInline]

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 import uuid
 
 class Application(models.Model):
@@ -20,7 +21,16 @@ class Report(models.Model):
 
 class FuzzingAttempt(models.Model):
     app = models.ForeignKey(Application)
+    created = models.DateTimeField(default=timezone.now)
     fuzzer_stats = models.TextField(verbose_name='fuzzer_stats contents')
+    notes = models.TextField(verbose_name='Notes (version, patches, extra '
+                             'environment setup like LD_PRELOAD):')
+
+    # http://stackoverflow.com/a/1737078/1091116
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.created = timezone.now()
+        return super(User, self).save(*args, **kwargs)
 
 def upload_path_handler(instance, filename):
     return 'static/%s' % uuid.uuid4()
