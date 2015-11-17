@@ -33,7 +33,7 @@ class FuzzingAttempt(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.created = timezone.now()
-        return super(User, self).save(*args, **kwargs)
+        return super(FuzzingAttempt, self).save(*args, **kwargs)
 
 def upload_path_handler(instance, filename):
     return 'static/%s' % uuid.uuid4()
