@@ -6,11 +6,9 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fuzziverse.settings")
 from fuzziverse import models
 t = html.parse("http://lcamtuf.coredump.cx/afl/")
 for entry in t.xpath('//td'):
-        app = models.Application()
-        name = entry.text.rstrip()
+        name = entry.text.strip()
+        app, created = models.Application.objects.get_or_create(name=name)
         print("Adding: %s" % name)
-        app.name = name
-        app.save()
         for link in entry.xpath('.//a'):
                 report = models.Report()
                 report.app = app
