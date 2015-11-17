@@ -3,7 +3,7 @@ from django.utils import timezone
 import uuid
 
 class Application(models.Model):
-    name = models.CharField(max_length=1024)
+    name = models.CharField(max_length=1024, unique=True)
     url = models.CharField(max_length=1024)
 
     class Meta:
