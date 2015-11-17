@@ -17,3 +17,10 @@ for entry in t.xpath('//td'):
         for link in entry.xpath('.//a'):
                 args = {'app': app, 'title': TITLE, 'url': link.get('href')}
                 report, created = models.Report.objects.get_or_create(**args)
+
+also_fuzzed = {i.text_content() for i in t.xpath('//p [contains(.,"")] /i')}
+for name in also_fuzzed:
+        app, created = models.Application.objects.get_or_create(name=name)
+        if created:
+            print("Added: %s" % name)
+        models.FuzzingAttempt.objects.get_or_create(app=app, notes=TITLE)
