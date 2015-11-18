@@ -19,7 +19,8 @@ for entry in t.xpath('//td'):
                 args = {'app': app, 'title': TITLE, 'url': link.get('href')}
                 report, created = models.Report.objects.get_or_create(**args)
 
-also_fuzzed = {i.text_content() for i in t.xpath('//p [contains(.,"")] /i')}
+ALSO_FUZZED_XPATH = '//p [contains(.,"On top of this")] /i'
+also_fuzzed = {i.text_content() for i in t.xpath(ALSO_FUZZED_XPATH)}
 for name in also_fuzzed:
         app, created = models.Application.objects.get_or_create(name=name)
         if created:
