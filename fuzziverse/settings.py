@@ -43,7 +43,7 @@ INSTALLED_APPS = (
 )
 
 if os.environ.get('FUZZIVERSE_READONLY'):
-    INSTALLED_APPS += ('readonly')
+    INSTALLED_APPS += ('readonly',)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -54,11 +54,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-#    'fuzziverse.auto_auth.Middleware',
 )
 
 if os.environ.get('FUZZIVERSE_READONLY'):
-    MIDDLEWARE_CLASSES += ('fuzziverse.auto_auth.Middleware')
+    MIDDLEWARE_CLASSES += ('fuzziverse.auto_auth.Middleware',)
 
 ROOT_URLCONF = 'fuzziverse.urls'
 
