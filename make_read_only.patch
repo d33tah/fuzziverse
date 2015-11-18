@@ -1,0 +1,31 @@
+diff --git a/fuzziverse/settings.py b/fuzziverse/settings.py
+index 6e3d698..a5d8750 100644
+--- a/fuzziverse/settings.py
++++ b/fuzziverse/settings.py
+@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
+ 
+ INSTALLED_APPS = (
+     'django_admin_bootstrapped',
+-#    'readonly',
++    'readonly',
+     'nested_inline',
+     'fuzziverse',
+     'django.contrib.admin',
+@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = (
+     'django.contrib.messages.middleware.MessageMiddleware',
+     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'django.middleware.security.SecurityMiddleware',
+-#    'fuzziverse.auto_auth.Middleware',
++    'fuzziverse.auto_auth.Middleware',
+ )
+ 
+ ROOT_URLCONF = 'fuzziverse.urls'
+@@ -108,7 +108,7 @@ MEDIA_URL = '/uploads/'
+ # https://docs.djangoproject.com/en/1.8/howto/static-files/
+ 
+ STATIC_URL = '/static/'
+-#SITE_READ_ONLY = True
++SITE_READ_ONLY = True
+ 
+ DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
+ 
