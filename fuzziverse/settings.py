@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'django_admin_bootstrapped',
+#    'readonly',
     'nested_inline',
     'fuzziverse',
     'django.contrib.admin',
@@ -51,6 +52,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+#    'fuzziverse.auto_auth.Middleware',
 )
 
 ROOT_URLCONF = 'fuzziverse.urls'
@@ -106,6 +108,7 @@ MEDIA_URL = '/uploads/'
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+#SITE_READ_ONLY = True
 
 DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
 

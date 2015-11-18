@@ -1,4 +1,5 @@
 django-nested-inline
+django-db-readonly
 django
 django-admin-bootstrapped
 django-bootstrap3
