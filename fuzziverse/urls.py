@@ -18,7 +18,9 @@ from django.contrib import admin
 from fuzziverse.admin import user_admin_site
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import RedirectView
 
 urlpatterns = [
+    url(r'^$', RedirectView.as_view(url='/fuzziverse/application/')),
     url(r'^', include(user_admin_site.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
