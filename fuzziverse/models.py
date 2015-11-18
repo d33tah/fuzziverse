@@ -4,7 +4,7 @@ import uuid
 
 class Application(models.Model):
     name = models.CharField(max_length=1024, unique=True)
-    url = models.CharField(max_length=1024)
+    url = models.CharField(max_length=1024, blank=True)
 
     class Meta:
         ordering = ['name']
