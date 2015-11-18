@@ -8,18 +8,18 @@ from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from fuzziverse import models
 class FileUploadInline(NestedStackedInline):
     model = models.InputTestCase
-    min_num = 1
-    extra = 0
+    min_num = 0
+    extra = 1
 
 class ReportInline(NestedStackedInline):
     model = models.Report
-    min_num = 1
-    extra = 0
+    min_num = 0
+    extra = 1
 
 class FuzzingAttemptInline(NestedStackedInline):
     model = models.FuzzingAttempt
-    min_num = 1
-    extra = 0
+    min_num = 0
+    extra = 1
     inlines = [FileUploadInline]
     readonly_fields = ['created']
 
